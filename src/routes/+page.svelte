@@ -42,6 +42,8 @@
   {/if}
 
   <!--More components go below-->
+
+
 </main>
   
 <style>
