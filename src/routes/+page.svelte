@@ -3,54 +3,65 @@
   import CivilDefence from "$lib/CivilDefence.svelte";
   import GeoNet from "$lib/GeoNet.svelte";
   import Volcano from "$lib/Volcano.svelte";
-  import Tides from '$lib/Tides.svelte';
-  import CommunityMember from '$lib/CommunityMember.svelte';
-  import { load as loadResources } from './CommunityMember/+page.js';
+  import Tides from "$lib/Tides.svelte";
+  import CommunityMember from "$lib/CommunityMember.svelte";
+  import { load as loadResources } from "./CommunityMember/+page.js";
   import AlertsRss from "$lib/AlertsRSS.svelte";
   import Map from "$lib/Map.svelte";
-  
+
   let resources = [];
   let loading = true;
   let error = null;
+  let selected = "All";
 
   (async () => {
-      try {
-          const data = await loadResources();
-          resources = data.resources;
-      } catch (err) {
-          error = 'Failed to load resources.';
-      } finally {
-          loading = false; 
-      }
+    try {
+      const data = await loadResources();
+      resources = data.resources;
+    } catch (err) {
+      error = "Failed to load resources.";
+    } finally {
+      loading = false;
+    }
   })();
 </script>
 
+<select bind:value={selected}>
+  <option value="All">All</option>
+  <option value="Coastguard">Coastguard</option>
+</select>
+
 <main>
-  <Metservice />  
-  <GeoNet />
-  <Volcano />
-  <Map />
-  <AlertsRss />
-  <Tides />
-  <CivilDefence /> 
-  {#if loading}
-      <p>Loading resources...</p>
-  {:else if error}
-      <p>{error}</p>
+  {#if selected === "Coastguard"}
+    <Metservice />
+    <Tides />
   {:else}
+    <Metservice />
+    <GeoNet />
+    <Volcano />
+    <Map />
+    <AlertsRss />
+    <Tides />
+    <CivilDefence />
+
+    {#if loading}
+      <p>Loading resources...</p>
+    {:else if error}
+      <p>{error}</p>
+    {:else}
       <CommunityMember {resources} />
+    {/if}
   {/if}
 
   <!--More components go below-->
 </main>
-  
+
 <style>
-  main{
+  main {
     padding-top: 2em;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
-    
   }
 </style>
