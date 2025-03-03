@@ -31,15 +31,11 @@ function getACCStyles(acc) {
 function getEmoji(acc) {
     return emojis[acc] || "⚪"; // Default emoji for unknown acc
 }
-function fullscreen(){
-    class fullscreen {
-        constructor(parameters) {
-            
-        }
-    }
-}
+let fullscreen = 'not';
 </script>
-<section class="fullscreen" on:click={fullscreen}>
+<section
+class="{fullscreen === 'full' ? 'screen' : ''}"
+on:click={() => fullscreen = 'full'}>
 <h1>Volcano information</h1>
 <h3>Volcano status by city:</h3>
 {#each volcanos as volcano}
@@ -64,7 +60,8 @@ function fullscreen(){
         border-radius: 5px;
         padding: 0.1em;
     }
-    .fullscreen{
-        
+    .screen{
+        width: 1000px;
+        height: 1000px;
     }
 </style>
