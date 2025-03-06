@@ -35,7 +35,9 @@ let fullscreen = 'not';
 </script>
 <section
 class="{fullscreen === 'full' ? 'screen' : ''}"
-on:click={() => fullscreen = 'full'}>
+id="{fullscreen === 'small' ? 'small' : ''}">
+<button on:click={() => fullscreen = 'full'}>+</button>
+<button on:click={() => fullscreen = 'small'}>-</button>
 <h1>Volcano information</h1>
 <h3>Volcano status by city:</h3>
 {#each volcanos as volcano}
@@ -63,5 +65,9 @@ on:click={() => fullscreen = 'full'}>
     .screen{
         width: 1000px;
         height: 1000px;
+    }
+    #small{
+        width: 375px;
+        height: 375px;
     }
 </style>
