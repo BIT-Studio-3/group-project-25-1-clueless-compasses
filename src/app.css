@@ -6,7 +6,7 @@ body {
 }
 
 section {
-    @apply w-[375px] h-[375px] shadow-lg rounded-md p-4 overflow-y-auto;
+    @apply w-[375px] h-[375px] shadow-lg rounded-md p-4 overflow-y-auto border-4 border-[#131f2a];
 }
 
 summary {
@@ -14,10 +14,12 @@ summary {
 }
 
 header {
-    @apply shadow-[rgba(0,0,0,0.35)_0px_-50px_36px_-28px_inset] bg-gradient-to-r from-[#053a78] via-[#1d73a8] to-[#00d4ff] transition-colors duration-1000;
+    @apply shadow-[rgba(0,0,0,0.35)_0px_-50px_36px_-28px_inset] bg-gradient-to-r from-[#053a78] via-[#1d73a8] to-[#00d4ff] transition-colors duration-1000 border-4 border-[#131f2a]
+    ;
     opacity: 0;
     transform: translateY(-20px);
     animation: fadeDropIn 1s ease-out forwards;
+
 }
 
 thead {
@@ -38,7 +40,7 @@ iframe {
 
 /* Dark mode styles */
 body.dark {
-    @apply bg-[#131f2a];
+    @apply bg-[#131f2a] ;
 }
 
 header.dark {
