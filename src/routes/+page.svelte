@@ -9,6 +9,7 @@
   import AlertsRss from "$lib/AlertsRSS.svelte";
   import Map from "$lib/Map.svelte";
   import { selectedAgency } from '$lib/stores.js';
+  import CurrentEvents from "../lib/CurrentEvents.svelte";
 
   let resources = [];
   let loading = true;
@@ -33,13 +34,16 @@
   {#if $selectedAgency === "FENZ"}
     <Metservice />
     <AlertsRss />
+    <CurrentEvents />
   {:else if $selectedAgency === "GeoNet"}
     <GeoNet />
     <Volcano />
+    <CurrentEvents />
   {:else if $selectedAgency === "USAR"}
     <Metservice />
     <GeoNet />
     <Volcano />
+    <CurrentEvents />
   {:else}
     <!-- Displays all -->
     <Metservice />
