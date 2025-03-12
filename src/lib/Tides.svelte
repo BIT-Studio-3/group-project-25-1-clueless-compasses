@@ -62,7 +62,7 @@
 </script>
 
 <section class="p-4">
-  <h1 class="text-xl font-bold mb-2">{selectedCity.name} Tides</h1>
+  <h1 class="text-2xl font-bold mb-2">{selectedCity.name} Tides</h1>
 
   <!-- City Selector -->
   <label for="city" class="block font-medium">Choose a city:</label>

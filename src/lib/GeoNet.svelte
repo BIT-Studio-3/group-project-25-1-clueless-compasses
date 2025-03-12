@@ -30,7 +30,7 @@
 <section>
   <h1 class="text-2xl font-bold mb-4">Earthquake Information</h1>
 
-  <select bind:value={selectedMmi} class="w-fit rounded bg-white text-gray-800 text-lg border cursor-pointer">
+  <select bind:value={selectedMmi} class="p-2 w-fit rounded bg-white text-gray-800 border cursor-pointer">
     <option value="1">{emojis.Green}1 - Unnoticeable</option>
     <option value="2">{emojis.Green}2 - Unnoticeable</option>
     <option value="3">{emojis.Yellow}3 - Weak</option>

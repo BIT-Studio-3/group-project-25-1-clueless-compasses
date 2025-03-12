@@ -49,7 +49,7 @@
     ];
 </script>
 <section>
-    <h2>Civil Defence Alerts in New Zealand</h2>
+    <h2 class="text-2xl font-bold mb-2">Civil Defence Alerts</h2>
     {#each alerts as alert}
         <div class="alert">
             <h5>{alert.type} (Severity: {alert.severity})</h5>
