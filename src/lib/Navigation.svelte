@@ -10,7 +10,7 @@
         dropdownDisplayed=true;
         dropdownMenu.style.display = dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
     }
-    import Button from "./Button.svelte";
+    import Button from "./DarkModeButton.svelte";
 
     //hides dropdown if anywhere on the page is clicked but the options or the hamburger icon
   function hideDropdown(event){
