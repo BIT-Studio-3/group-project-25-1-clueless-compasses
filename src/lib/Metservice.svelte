@@ -77,6 +77,7 @@ label{
 
   let weather = {};
   
+  //array use for selectedCity
   const cities = [
     { name: "Auckland", lat: -36.8485, lon: 174.7633 },
     { name: "Hamilton", lat: -37.7870, lon: 175.2793 },
@@ -90,6 +91,7 @@ label{
   
   let selectedCity = cities[7].name;
   
+    // a function to get weather info for a city from an api 
   async function fetchWeather(cityName) {
     const city = cities.find(c => c.name === cityName);
     const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&appid=82336dbf0297a6e4f7502d515fcbad51&units=metric`);

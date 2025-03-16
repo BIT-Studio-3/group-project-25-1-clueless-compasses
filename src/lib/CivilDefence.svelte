@@ -1,4 +1,5 @@
 <script>
+    // array with info for weather and flood warnings
     let alerts = [
         {
             id: "alert001",

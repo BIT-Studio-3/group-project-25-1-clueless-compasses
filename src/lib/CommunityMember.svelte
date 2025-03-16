@@ -3,6 +3,7 @@
 </script>
 
 <section>
+    
     <h2 class="text-xl font-bold">Community Facilities Improvement</h2>
     <p class="mb-4">As a community board member, here are some resources to help improve facilities after a disaster.</p>
     <ul class="list-none p-0">

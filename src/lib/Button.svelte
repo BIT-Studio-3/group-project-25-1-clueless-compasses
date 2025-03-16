@@ -1,4 +1,5 @@
 <script>
+    // all code for dark mode 
     let dark;
     function toggle() {
         dark = !dark;

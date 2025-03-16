@@ -10,6 +10,7 @@
   const dateOptions = { weekday: 'short', day: 'numeric', month: 'short' };
   const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Pacific/Auckland' };
 
+//array use for selectedCity
   const cities = [
     { name: "Auckland Harbour", lat: -36.8406, lon: 174.7650 },
     { name: "Tauranga Harbour", lat: -37.6555, lon: 176.1770 },
@@ -20,8 +21,10 @@
     { name: "Dunedin Harbour", lat: -45.8788, lon: 170.5080 }
   ];
 
+  //selectedCity takes cities to be used as selectedCity and city in later code
   let selectedCity = cities[6];
 
+  // a function to get tide info for a city from an api 
   async function fetchTides(city) {
     loading = true;
     try {
@@ -36,6 +39,7 @@
       loading = false;
     }
   }
+
 
   function getTides() {
     tidePairs = [];
