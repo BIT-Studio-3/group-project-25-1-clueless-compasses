@@ -98,16 +98,46 @@
       graphicsLayer.add(textGraphic);
     });
   };
+
+  let fullscreen="small";
 </script>
 
-<section>
+<section    class={fullscreen === "full" ? "bigScreen" : "smallScreen"}
+id={fullscreen === "small" ? "smallScreen" : ""}
+>
+
 <h2>Community Centre & Halls</h2>
+<div class="buttonContainer">
+  <button on:click={() => (fullscreen === "small"? fullscreen="full": fullscreen="small")}>{fullscreen==="small"? "+" : "-"}</button>
+</div>
+
 <div class="view" use:createMap></div>
 </section>
 
 <style>
-.view {
-  height: 300px;
-  width: 350px;
-}
+  section {
+    display: grid;
+    place-items: center; 
+  }
+
+  .view {
+    height: 300px;
+    width: 350px;
+  }
+
+  .smallScreen {
+    width: 375px;
+    height: 375px;
+  }
+
+  .bigScreen {
+    width: 1000px;
+    height: 700px;
+  }
+
+  .bigScreen .view {
+    width: 700px;
+    height: 600px;
+  }
+
 </style>
