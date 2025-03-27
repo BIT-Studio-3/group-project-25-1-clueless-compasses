@@ -1,5 +1,20 @@
 <script>
   
+const iframe = document.getElementById("rssOutput");
+
+try {
+  const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+
+  // Check if the body of the iframe is empty
+  if (iframeDocument.body.innerHTML.trim() === "") {
+    console.log("The iframe is empty.");
+  } else {
+    console.log("The iframe has content.");
+  }
+} catch (error) {
+  console.log("Cannot access iframe content due to cross-origin restrictions.");
+}
+
 </script>
 
 <section>
@@ -8,7 +23,6 @@
     <div id="rsswidget" style="height: 500px;">
       <iframe
         src="https://www.rssfeedwidget.com/getrss.php?time=1730414224022&amp;x=https%3A%2F%2Falerts.metservice.com%2Fcap%2Frss&amp;w=200&amp;h=500&amp;bc=333333&amp;bw=1&amp;bgc=transparent&amp;m=20&amp;it=false&amp;t=(default)&amp;tc=333333&amp;ts=15&amp;tb=transparent&amp;il=true&amp;lc=000000&amp;ls=14&amp;lb=true&amp;id=true&amp;dc=333333&amp;ds=14&amp;idt=true&amp;dtc=284F2D&amp;dts=12"
-        
         border="0"
         frameborder="no"
         style="border: 0; padding: 0; margin: 0; width: 340px; height: 500px;"
