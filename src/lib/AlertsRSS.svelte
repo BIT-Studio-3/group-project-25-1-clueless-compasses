@@ -1,4 +1,20 @@
 <script>
+  
+const iframe = document.getElementById("rssOutput");
+
+try {
+  const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+
+  // Check if the body of the iframe is empty
+  if (iframeDocument.body.innerHTML.trim() === "") {
+    console.log("The iframe is empty.");
+  } else {
+    console.log("The iframe has content.");
+  }
+} catch (error) {
+  console.log("Cannot access iframe content due to cross-origin restrictions.");
+}
+
 </script>
 
 <section>
