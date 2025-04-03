@@ -61,6 +61,9 @@
             <li class="list-disc ml-8">
                 <DarkModeButton />
             </li>
+            <li>
+                <a href="/hazard-Page/">Hazard logs</a>
+            </li>
         </ul>
     </nav>
 </header>
