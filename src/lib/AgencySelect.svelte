@@ -30,6 +30,4 @@
     background-color: white;
     color: #333;
 }
-
-
 </style>

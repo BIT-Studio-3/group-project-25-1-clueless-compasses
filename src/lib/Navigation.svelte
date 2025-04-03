@@ -4,14 +4,15 @@
     let dropdownMenu;
     let dropdownDisplayed = false;
     import AgencySelect from "$lib/AgencySelect.svelte";
-
+    import PageSelect from "$lib/PageSelect.svelte";
+    import DarkModeButton from "./DarkModeButton.svelte";
+    
     function displayMenu() {
         // Toggle the display style of the dropdown menu
         dropdownDisplayed = true;
         dropdownMenu.style.display =
             dropdownMenu.style.display === "flex" ? "none" : "flex";
     }
-    import DarkModeButton from "./DarkModeButton.svelte";
 
     //hides dropdown if anywhere on the page is clicked but the options or the hamburger icon
     function hideDropdown(event) {
@@ -42,6 +43,9 @@
             <li class="p-4">
                 <DarkModeButton />
             </li>
+            <li class="p-4">
+                <PageSelect />
+            </li>
         </ul>
         <!--Hamburger Menu-->
         <ul class="md:hidden ml-8">
@@ -60,6 +64,9 @@
             </li>
             <li class="list-disc ml-8">
                 <DarkModeButton />
+            </li>
+            <li class="list-disc ml-8">
+                <PageSelect />
             </li>
         </ul>
     </nav>
