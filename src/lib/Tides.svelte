@@ -6,7 +6,7 @@
   let tidePairs = [];
   let selectedForecast = '2 day';
   let loading = true;
-  let fullscreen = "not";
+  let fullscreen = "small";
 
   const dateOptions = { weekday: 'short', day: 'numeric', month: 'short' };
   const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Pacific/Auckland' };
@@ -63,9 +63,17 @@
 </script>
 
 <section class={fullscreen === "full" ? "bigScreen" : "smallScreen"}>
-  <button on:click={() => (fullscreen = "full")}>+</button>
-  <button on:click={() => (fullscreen = "small")}>-</button>
-  <h1>{selectedCity.name} Tides</h1>
+
+
+  <h1>
+    {selectedCity.name} Tides
+    <button
+    class="fullscreen-toggle"
+    title={fullscreen === "full" ? "Shrink" : "Enlarge"}
+    on:click={() => fullscreen == "full" ? (fullscreen = "small") : (fullscreen = "full")} >
+    {fullscreen == "full" ? "🔍➖" : "🔍➕"}
+</button>
+</h1>
 
   <label for="city">Choose a city:</label>
   <select id="city" bind:value={selectedCity} on:change={handleCityChange}>
@@ -159,5 +167,12 @@
   }
   tr:hover {
     background-color: #f9f9f9;
+  }
+  .fullscreen-toggle {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 1em;
+    margin-left: 0.5em;
   }
 </style>

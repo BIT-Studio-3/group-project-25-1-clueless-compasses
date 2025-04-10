@@ -38,9 +38,16 @@
     class={fullscreen === "full" ? "bigScreen" : "smallScreen"}
     id={fullscreen === "small" ? "smallScreen" : ""}
 >
-    <button on:click={() => (fullscreen = "full")}>+</button>
-    <button on:click={() => (fullscreen = "small")}>-</button>
-    <h1>Volcano information</h1>
+    <h1>
+        Volcano information
+        <button
+            class="fullscreen-toggle"
+            title={fullscreen === "full" ? "Shrink" : "Enlarge"}
+            on:click={() => fullscreen == "full" ? (fullscreen = "small") : (fullscreen = "full")} >
+            {fullscreen == "full" ? "🔍➖" : "🔍➕"}
+        </button>
+    </h1>
+
     <h3>Volcano status by city:</h3>
     {#each volcanos as volcano}
         <details>
@@ -80,15 +87,22 @@
         padding: 0.3rem;
     }
     .bigScreen h1 {
-        font-size: 1.5em; 
+        font-size: 1.5em;
     }
 
     .bigScreen h3 {
-        font-size: 1.2em; 
+        font-size: 1.2em;
     }
 
     .smallScreen {
         width: 375px;
         height: 375px;
+    }
+    .fullscreen-toggle {
+        cursor: pointer;
+        background: none;
+        border: none;
+        font-size: 1em;
+        margin-left: 0.5em;
     }
 </style>

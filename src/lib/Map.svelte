@@ -106,9 +106,16 @@
 id={fullscreen === "small" ? "smallScreen" : ""}
 >
 
-<h2>Community Centre & Halls</h2>
-<div class="buttonContainer">
-  <button on:click={() => (fullscreen === "small"? fullscreen="full": fullscreen="small")}>{fullscreen==="small"? "+" : "-"}</button>
+  <h1>
+    Community Centre & Halls
+    <button
+    class="fullscreen-toggle"
+    title={fullscreen === "full" ? "Shrink" : "Enlarge"}
+    on:click={() => fullscreen == "full" ? (fullscreen = "small") : (fullscreen = "full")} >
+    {fullscreen == "full" ? "🔍➖" : "🔍➕"}
+</button>
+</h1>
+  <div class="buttonContainer">
 </div>
 
 <div class="view" use:createMap></div>
@@ -138,6 +145,13 @@ id={fullscreen === "small" ? "smallScreen" : ""}
   .bigScreen .view {
     width: 700px;
     height: 600px;
+  }
+  .fullscreen-toggle {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 0.7em;
+    margin-left: 0.2sem;
   }
 
 </style>
