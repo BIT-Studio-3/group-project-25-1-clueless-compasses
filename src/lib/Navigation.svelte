@@ -6,7 +6,6 @@
     import AgencySelect from "$lib/AgencySelect.svelte";
     import PageSelect from "$lib/PageSelect.svelte";
     import DarkModeButton from "./DarkModeButton.svelte";
-    import LogoutButton from "./LogoutButton.svelte";
     
     function displayMenu() {
         // Toggle the display style of the dropdown menu
@@ -48,9 +47,6 @@
             <li class="p-4">
                 <PageSelect />
             </li>
-            <li class="p-4">
-                <LogoutButton/>
-            </li>
         </ul>
         <!--Hamburger Menu-->
         <ul class="md:hidden ml-8">
@@ -76,12 +72,8 @@
             <li class="list-disc ml-8">
                 <PageSelect />
             </li>
-            <li class="list-disc ml-8">
-                <LogoutButton/>
-            </li>
         </ul>
     </nav>
-
     <h2><a href="incident">incident</a></h2>
 </header>
 
@@ -220,4 +212,3 @@
 }
 
 </style>
-
