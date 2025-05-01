@@ -47,9 +47,22 @@
             status: "Active"
         },
     ];
+    let fullscreen="smallScreen"
 </script>
-<section>
-    <h2>Civil Defence Alerts in New Zealand</h2>
+<section
+class={fullscreen === "full" ? "bigScreen" : "smallScreen"}
+id={fullscreen === "small" ? "smallScreen" : ""}
+>
+
+    <h2>Civil Defence Alerts in New Zealand
+  <button
+  class="fullscreen-toggle"
+  title={fullscreen === "full" ? "Shrink" : "Enlarge"}
+  on:click={() => fullscreen == "full" ? (fullscreen = "small") : (fullscreen = "full")} >
+  {fullscreen == "full" ? "🔍➖" : "🔍➕"}
+</button>
+    </h2>
+    
     {#each alerts as alert}
         <div class="alert">
             <h5>{alert.type} (Severity: {alert.severity})</h5>
@@ -84,5 +97,27 @@
 </section>
 
 <style>
+    .bigScreen {
+        width: 1000px;
+        height: 700px;
+    }
+    .bigScreen * {
+        padding: 0.3rem;
+    }
+    .bigScreen div * {
+        font-size: 1em;
+    }
 
+
+    .smallScreen {
+        width: 375px;
+        height: 375px;
+    }
+    .fullscreen-toggle {
+        cursor: pointer;
+        background: none;
+        border: none;
+        font-size: 1em;
+        margin-left: 0.5em;
+    }
 </style>

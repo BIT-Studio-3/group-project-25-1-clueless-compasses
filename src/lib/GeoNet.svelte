@@ -26,11 +26,24 @@
         Red: "🟥",
         Orange:"🟧"
 };
+let fullscreen="smallScreen"
 </script>
 
-<section>
-  <h1>Earthquake information</h1>
-  
+<section
+  class={fullscreen === "full" ? "bigScreen" : "smallScreen"}
+  id={fullscreen === "small" ? "smallScreen" : ""}
+>
+  <h1>Earthquake information
+
+<button
+  class="fullscreen-toggle"
+  title={fullscreen === "full" ? "Shrink" : "Enlarge"}
+  on:click={() => fullscreen == "full" ? (fullscreen = "small") : (fullscreen = "full")} >
+  {fullscreen == "full" ? "🔍➖" : "🔍➕"}
+</button>
+
+</h1>
+
   <select bind:value={selectedMmi}>
     <option value="1">{emojis.Green}1 - Unnoticeable</option>
     <option value="2">{emojis.Green}2 - Unnoticeable</option>
@@ -58,6 +71,41 @@
   </section>
 
 <style>
+    .bigScreen {
+        width: 1000px;
+        height: 700px;
+    }
+    .bigScreen * {
+        padding: 0.3rem;
+    }
+    .bigScreen h1 {
+        font-size: 1.5em;
+    }
+
+    .bigScreen option {
+        font-size: 1.2em;
+    }
+
+    .bigScreen summary{
+      font-size: 1.2rem;
+      padding: 0.7em;
+    }
+    .bigScreen p{
+      font-size: 1.1rem;
+    }
+
+    .smallScreen {
+        width: 375px;
+        height: 375px;
+    }
+    .fullscreen-toggle {
+        cursor: pointer;
+        background: none;
+        border: none;
+        font-size: 1em;
+        margin-left: 0.5em;
+    }
+
 
 summary {
   cursor: pointer;

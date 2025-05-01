@@ -25,11 +25,26 @@
   onMount(() => {
     fetchWeather(selectedCity);
   });
+
+  let fullscreen="smalll"
 </script>
 
 
-<section>
-  <h2>Current Weather</h2>
+<section
+  class={fullscreen === "full" ? "bigScreen" : "smallScreen"}
+  id={fullscreen === "small" ? "smallScreen" : ""}
+>
+
+  <h2>Current Weather
+
+  <button
+  class="fullscreen-toggle"
+  title={fullscreen === "full" ? "Shrink" : "Enlarge"}
+  on:click={() => fullscreen == "full" ? (fullscreen = "small") : (fullscreen = "full")} >
+  {fullscreen == "full" ? "🔍➖" : "🔍➕"}
+</button>
+
+</h2>
   
   <label for="city">Choose a city:</label>
   <select id="city" bind:value={selectedCity} on:change={() => fetchWeather(selectedCity)}>
@@ -69,6 +84,34 @@ option {
 label{
   font-size: 1.2rem;
 }
+
+.bigScreen {
+        width: 1000px;
+        height: 700px;
+    }
+    .bigScreen * {
+        padding: 0.3rem;
+    }
+    .bigScreen h2 {
+        font-size: 1.5em;
+    }
+
+    .bigScreen li {
+        font-size: 1.2em;
+        padding: 1.2rem;
+    }
+
+    .smallScreen {
+        width: 375px;
+        height: 375px;
+    }
+    .fullscreen-toggle {
+        cursor: pointer;
+        background: none;
+        border: none;
+        font-size: 1em;
+        margin-left: 0.5em;
+    }
 
 </style>
 

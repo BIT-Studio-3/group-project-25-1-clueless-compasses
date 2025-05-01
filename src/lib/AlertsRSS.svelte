@@ -1,8 +1,19 @@
 <script>
+  let fullscreen="smallScreen"
 </script>
 
-<section>
-  <h1>Metservice Warnings</h1>
+<section
+class={fullscreen === "full" ? "bigScreen" : "smallScreen"}
+id={fullscreen === "small" ? "smallScreen" : ""}
+>
+  <h1>Metservice Warnings
+    <button
+    class="fullscreen-toggle"
+    title={fullscreen === "full" ? "Shrink" : "Enlarge"}
+    on:click={() => fullscreen == "full" ? (fullscreen = "small") : (fullscreen = "full")} >
+    {fullscreen == "full" ? "🔍➖" : "🔍➕"}
+  </button>
+  </h1>
   <div id="widgetmain">
     <div id="rsswidget" style="height: 500px;">
       <iframe
@@ -33,4 +44,27 @@
     overflow-x: hidden;
     width: 100%;
   }
+
+  .bigScreen {
+        width: 1000px;
+        height: 700px;
+    }
+    .bigScreen * {
+        padding: 0.3rem;
+    }
+    .bigScreen h1 {
+        font-size: 1.5em;
+    } 
+
+    .smallScreen {
+        width: 375px;
+        height: 375px;
+    }
+    .fullscreen-toggle {
+        cursor: pointer;
+        background: none;
+        border: none;
+        font-size: 1em;
+        margin-left: 0.5em;
+    }
 </style>
