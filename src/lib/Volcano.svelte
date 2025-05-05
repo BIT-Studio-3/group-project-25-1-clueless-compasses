@@ -32,6 +32,7 @@
         return emojis[acc] || "⚪"; // Default emoji for unknown acc
     }
     let fullscreen = "not";
+
 </script>
 
 <section
@@ -80,9 +81,10 @@
         padding: 0.1em;
     }
     .bigScreen {
-        width: 1000px;
+        width: 75%;
         height: 700px;
     }
+
     .bigScreen * {
         padding: 0.3rem;
     }

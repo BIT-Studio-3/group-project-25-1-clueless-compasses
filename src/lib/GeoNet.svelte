@@ -72,7 +72,7 @@ let fullscreen="smallScreen"
 
 <style>
     .bigScreen {
-        width: 1000px;
+        width: 75%;
         height: 700px;
     }
     .bigScreen * {
