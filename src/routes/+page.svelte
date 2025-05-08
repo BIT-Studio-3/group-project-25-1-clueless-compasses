@@ -11,12 +11,22 @@
   import CurrentEvents from "$lib/CurrentEvents.svelte";
   import NZTACameras from "$lib/NZTACameras.svelte";
   import RssEmergencyAlerts from "$lib/RSSEmergencyAlerts.svelte";
+  import { onMount } from 'svelte';
+  import { goto } from '$app/navigation';
 
-  //NZTA Camera & Meservice Alerts Data
+  onMount(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      console.log('No Token Detected, Redirecting to Login Page')
+      goto('/login'); 
+    }
+  });
+
   export let data;
 
-  // Variable was required to be data, so I'm destructuring two variables from inside data 
   const { groupedCameras, fullAlertDetails } = data;
+
+  
 </script>
 
 <!-- Drop down for selecting agency specific view -->
